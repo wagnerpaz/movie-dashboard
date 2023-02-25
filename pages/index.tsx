@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Head from "next/head";
 
 import SideMenu from "/components/SideMenu/SideMenu";
@@ -20,6 +21,7 @@ import SettingsIcon from "/icons/settings.svg";
 import LogOutIcon from "/icons/log-out.svg";
 
 export default function Home() {
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <>
       <Head>
@@ -29,7 +31,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-dark-2">
-        <SideMenu>
+        <SideMenu
+          collapsed={collapsed}
+          onCollapsedChange={(value) => setCollapsed(value)}
+        >
           <SideMenuGroup title="Menu">
             <SideMenuItem icon={<HomeIcon />}>Home</SideMenuItem>
             <SideMenuItem icon={<DiscoverIcon />}>Discover</SideMenuItem>

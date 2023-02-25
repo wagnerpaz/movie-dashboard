@@ -1,14 +1,24 @@
-import { ComponentProps } from "react";
+import { ComponentProps, useContext } from "react";
+import classNames from "classnames";
+
+import { SideMenuContext } from "./SideMenu";
 
 interface SideMenuGroupProps extends ComponentProps<"div"> {
   title: string;
 }
 
 const SideMenuGroup: React.FC<SideMenuGroupProps> = ({ children, title }) => {
+  const { collapsed } = useContext(SideMenuContext);
   return (
-    <div>
-      <span className="block text-gray-1 my-2 select-none">{title}</span>
-      <div className="grid grid-cols-[max-content_1fr_max-content] items-center justify-start gap-x-4">
+    <div className={classNames("transition-all")}>
+      <span
+        className={classNames("block text-gray-1 my-2 select-none", {
+          "text-[transparent] w-0": collapsed,
+        })}
+      >
+        {title}
+      </span>
+      <div className="grid grid-cols-[max-content_1fr_max-content] items-center justify-start">
         {children}
       </div>
     </div>
