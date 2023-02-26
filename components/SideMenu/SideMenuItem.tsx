@@ -20,8 +20,8 @@ const SideMenuItem: React.FC<SideMenuItemProps> = ({
       {icon}
       <a
         className={classNames(
-          "py-4 pl-4 mr-6",
-          "group-hover:translate-x-2 transition-all whitespace-nowrap",
+          "py-4 group-hover:translate-x-2 transition-all whitespace-nowrap",
+          { "pl-4 mr-6": !collapsed },
           { "scale-x-0 w-0 mr-0 pl-0 pr-3": collapsed }
         )}
       >

@@ -14,7 +14,7 @@ const SideMenuGroup: React.FC<SideMenuGroupProps> = ({ children, title }) => {
       <span
         className={classNames("block my-2 select-none transition-all", {
           "text-gray-1": !collapsed,
-          "text-[transparent] w-0": collapsed,
+          "text-[transparent] w-0 text-clip": collapsed,
         })}
       >
         {title}
