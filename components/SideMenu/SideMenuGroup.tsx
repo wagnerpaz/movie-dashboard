@@ -10,9 +10,10 @@ interface SideMenuGroupProps extends ComponentProps<"div"> {
 const SideMenuGroup: React.FC<SideMenuGroupProps> = ({ children, title }) => {
   const { collapsed } = useContext(SideMenuContext);
   return (
-    <div className={classNames("transition-all")}>
+    <div>
       <span
-        className={classNames("block text-gray-1 my-2 select-none", {
+        className={classNames("block my-2 select-none transition-all", {
+          "text-gray-1": !collapsed,
           "text-[transparent] w-0": collapsed,
         })}
       >
