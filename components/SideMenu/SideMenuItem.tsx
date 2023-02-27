@@ -1,23 +1,23 @@
-import { ComponentProps, ReactNode, useContext } from "react";
+import { ComponentProps, useContext } from "react";
 import classNames from "classnames";
 
 import { SideMenuContext } from "./SideMenu";
 
 interface SideMenuItemProps extends ComponentProps<"a"> {
-  icon?: ReactNode;
+  icon?: React.ComponentClass<any>;
   selected?: boolean;
 }
 
 const SideMenuItem: React.FC<SideMenuItemProps> = ({
   children,
-  icon,
+  icon: Icon,
   selected = false,
 }) => {
   const { collapsed } = useContext(SideMenuContext);
 
   return (
     <nav className="group contents cursor-pointer select-none hover:text-green-1">
-      {icon}
+      {Icon && <Icon />}
       <a
         className={classNames(
           "py-4 group-hover:translate-x-2 transition-all whitespace-nowrap",

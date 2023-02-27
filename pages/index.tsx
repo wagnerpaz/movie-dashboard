@@ -19,6 +19,11 @@ import CompletedIcon from "/icons/completed.svg";
 
 import SettingsIcon from "/icons/settings.svg";
 import LogOutIcon from "/icons/log-out.svg";
+import TabGroup from "/components/Tabs/TabGroup";
+import TabList from "/components/Tabs/TabList";
+import Tab from "/components/Tabs/Tab";
+import TabPanels from "/components/Tabs/TabPanels";
+import TabPanel from "/components/Tabs/TabPanel";
 
 export default function Home() {
   const [collapsed, setCollapsed] = useState(false);
@@ -30,31 +35,45 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-dark-2">
+      <div className="flex flex-row bg-dark-2">
         <SideMenu
           collapsed={collapsed}
           onCollapsedChange={(value) => setCollapsed(value)}
         >
           <SideMenuGroup title="Menu">
-            <SideMenuItem icon={<HomeIcon />}>Home</SideMenuItem>
-            <SideMenuItem icon={<DiscoverIcon />}>Discover</SideMenuItem>
-            <SideMenuItem icon={<AwardsIcon />}>Awards</SideMenuItem>
-            <SideMenuItem icon={<CelebritiesIcon />}>Celebrities</SideMenuItem>
+            <SideMenuItem icon={HomeIcon}>Home</SideMenuItem>
+            <SideMenuItem icon={DiscoverIcon}>Discover</SideMenuItem>
+            <SideMenuItem icon={AwardsIcon}>Awards</SideMenuItem>
+            <SideMenuItem icon={CelebritiesIcon}>Celebrities</SideMenuItem>
           </SideMenuGroup>
           <SideMenuGroup title="Library">
-            <SideMenuItem icon={<RecentIcon />}>Recent</SideMenuItem>
-            <SideMenuItem icon={<TopRatedIcon />}>Top Rated</SideMenuItem>
-            <SideMenuItem icon={<DownloadedIcon />}>Downloaded</SideMenuItem>
-            <SideMenuItem icon={<PlaylistsIcon />}>Playlists</SideMenuItem>
-            <SideMenuItem icon={<WatchlistIcon />}>Watchlist</SideMenuItem>
-            <SideMenuItem icon={<CompletedIcon />}>Completed</SideMenuItem>
+            <SideMenuItem icon={RecentIcon}>Recent</SideMenuItem>
+            <SideMenuItem icon={TopRatedIcon}>Top Rated</SideMenuItem>
+            <SideMenuItem icon={DownloadedIcon}>Downloaded</SideMenuItem>
+            <SideMenuItem icon={PlaylistsIcon}>Playlists</SideMenuItem>
+            <SideMenuItem icon={WatchlistIcon}>Watchlist</SideMenuItem>
+            <SideMenuItem icon={CompletedIcon}>Completed</SideMenuItem>
           </SideMenuGroup>
           <SideMenuGroup title="General">
-            <SideMenuItem icon={<SettingsIcon />}>Settings</SideMenuItem>
-            <SideMenuItem icon={<LogOutIcon />}>Log out</SideMenuItem>
+            <SideMenuItem icon={SettingsIcon}>Settings</SideMenuItem>
+            <SideMenuItem icon={LogOutIcon}>Log out</SideMenuItem>
           </SideMenuGroup>
         </SideMenu>
-      </main>
+        <main className="px-16 py-8 flex-1">
+          <TabGroup>
+            <TabList>
+              <Tab>Movies</Tab>
+              <Tab>TV Shows</Tab>
+              <Tab>Anime</Tab>
+            </TabList>
+            <TabPanels className="flex items-center justify-center text-white-1">
+              <TabPanel>Hello Movies Tab</TabPanel>
+              <TabPanel>Hello TV Shows Tab</TabPanel>
+              <TabPanel>Hello Anime Tab</TabPanel>
+            </TabPanels>
+          </TabGroup>
+        </main>
+      </div>
     </>
   );
 }
