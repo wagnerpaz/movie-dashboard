@@ -1,12 +1,5 @@
 import "/styles/globals.css";
-import {
-  Component,
-  ComponentClass,
-  ComponentProps,
-  FC,
-  ReactElement,
-  ReactNode,
-} from "react";
+import { FC, PropsWithChildren } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import type { AppProps } from "next/app";
@@ -20,7 +13,8 @@ type AppPropsWithLayout = AppProps & {
 };
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {
-  const Layout = Component.Layout ?? ((page: ReactElement) => page);
+  const Layout =
+    Component.Layout ?? (({ children }: PropsWithChildren) => children);
 
   return (
     <>

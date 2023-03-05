@@ -6,7 +6,7 @@ const configurationSSP =
     return {
       props: {
         ...input.props,
-        apiConfig: JSON.parse(process.env.API_CONFIGURATION || ""),
+        apiConfig: JSON.parse(process.env.API_CONFIGURATION || "{}"),
       },
     };
   };
