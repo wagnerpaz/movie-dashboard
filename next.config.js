@@ -9,6 +9,13 @@ const nextConfig = {
 
     return config;
   },
+  images: { domains: ["image.tmdb.org"] },
+  redirects() {
+    return [
+      { source: "/", destination: "/home", permanent: true },
+      { source: "/home", destination: "/home/tv-shows", permanent: true },
+    ];
+  },
 };
 
 module.exports = nextConfig;

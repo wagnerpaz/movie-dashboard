@@ -1,18 +1,18 @@
-import { GetServerSideProps, NextPage } from "next";
+import { GetServerSideProps } from "next";
 
 import type { NextPageWithLayout } from "/pages/_app";
-import HomeLayout from "../layouts/HomeLayout";
+import HomeLayout from "/layouts/HomeLayout";
 
 import { ssrHelpers } from "/lib/ssrHelpers";
 import configurationSSP from "/server-side-props/configurationSSP";
 
 interface HomeProps {}
 
-export default function Home({}: NextPageWithLayout<HomeProps>) {
-  return null;
+export default function Movies({}: NextPageWithLayout<HomeProps>) {
+  return <div>Welcome to Movies Page</div>;
 }
 
-Home.Layout = HomeLayout;
+Movies.Layout = HomeLayout;
 
 export const getServerSideProps: GetServerSideProps = ssrHelpers.pipe(
   configurationSSP()

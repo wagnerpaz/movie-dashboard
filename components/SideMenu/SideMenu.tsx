@@ -23,10 +23,9 @@ const SideMenu: React.FC<SideMenuProps> = ({
         `
         relative
         flex flex-col justify-between  
-        font-lato bg-dark-1 text-white-1 h-screen p-8 pr-0 w-fit 
+        font-lato bg-dark-1 text-white-1 h-screen py-8 w-fit 
         overflow-y-auto overflow-x-hidden custom-scrollbar
-        `,
-        { "pl-4": collapsed }
+        `
       )}
     >
       <button
