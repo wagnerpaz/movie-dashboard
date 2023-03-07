@@ -21,7 +21,7 @@ const SideMenu: React.FC<SideMenuProps> = ({
     <aside
       className={classNames(
         `
-        relative
+        sticky top-0
         flex flex-col justify-between  
         font-lato bg-dark-1 text-white-1 h-screen py-8 w-fit 
         overflow-y-auto overflow-x-hidden custom-scrollbar

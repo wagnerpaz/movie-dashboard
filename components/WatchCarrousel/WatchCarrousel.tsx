@@ -8,7 +8,9 @@ import React, {
 import classNames from "classnames";
 import { Transition } from "@headlessui/react";
 
-interface WatchCarrouselProps extends ComponentProps<"section"> {}
+interface WatchCarrouselProps extends ComponentProps<"section"> {
+  autoScroll?: boolean;
+}
 interface WatchCarrouselContextValue {
   currentChildIndex: number;
   setCurrentChildIndex: Dispatch<SetStateAction<number>>;
@@ -27,6 +29,7 @@ export const WatchCarrouselContext =
 const WatchCarrousel: React.FC<WatchCarrouselProps> = ({
   className,
   children,
+  autoScroll = false,
 }) => {
   const childrenArray = React.Children.toArray(children);
   const [currentChildIndex, setCurrentChildIndex] = useState(0);
@@ -34,6 +37,10 @@ const WatchCarrousel: React.FC<WatchCarrouselProps> = ({
     currentChildIndex < childrenArray.length - 1 ? currentChildIndex + 1 : 0;
 
   useEffect(() => {
+    if (!autoScroll) {
+      return;
+    }
+
     const interval = setInterval(() => {
       setCurrentChildIndex((currentChildIndex) =>
         currentChildIndex < childrenArray.length - 1 ? currentChildIndex + 1 : 0
@@ -41,7 +48,7 @@ const WatchCarrousel: React.FC<WatchCarrouselProps> = ({
     }, 7000);
 
     return () => clearInterval(interval);
-  }, [childrenArray]);
+  }, [childrenArray, autoScroll]);
 
   return (
     <WatchCarrouselContext.Provider

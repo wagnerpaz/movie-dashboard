@@ -33,7 +33,7 @@ const HomeLayout: FC<DashboardLayoutProps> = ({ children }) => {
             router.push(found ? found.section : TABS.MOVIES.section);
           }}
         >
-          <TabList>
+          <TabList className="sticky top-0 bg-dark-2 z-10">
             {Object.values(TABS).map(({ label, section }) => (
               <Tab key={section} onClick={() => router.push(section)}>
                 {label}

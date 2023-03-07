@@ -6,9 +6,13 @@
   .custom-scrollbar {
     @apply scrollbar-thin scrollbar-thumb-gray-1 scrollbar-track-dark-2 scrollbar-thumb-rounded-md;
   }
-}
 
-@responsive {
+  .reflection {
+    margin: 0 auto 0 auto;
+    -webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left
+          bottom, from(transparent), color-stop(67%, transparent), to(rgba(250, 250, 250, 0.1)));
+  }
+
   .text-shadow {
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
