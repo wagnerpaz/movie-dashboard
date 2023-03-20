@@ -35,6 +35,8 @@ const TvShows: NextPageWithLayout<TvShowsProps> = ({ apiConfig, tv }) => {
             key={current.name}
             title={current.name}
             imageUrl={`${apiConfig.images.base_url}w342${current.poster_path}`}
+            vote={current.vote_average}
+            overview={current.overview}
           />
         ))}
       </WatchGrid>

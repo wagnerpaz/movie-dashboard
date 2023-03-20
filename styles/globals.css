@@ -4,7 +4,7 @@
 
 @layer components {
   .custom-scrollbar {
-    @apply scrollbar-thin scrollbar-thumb-gray-1 scrollbar-track-dark-2 scrollbar-thumb-rounded-md;
+    @apply scrollbar-thin scrollbar-thumb-gray-1 scrollbar-track-dark-2 scrollbar-track-rounded-md scrollbar-thumb-rounded-md;
   }
 
   .reflection {
@@ -15,5 +15,21 @@
 
   .text-shadow {
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
   }
 }
