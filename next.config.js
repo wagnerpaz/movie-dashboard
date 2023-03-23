@@ -9,7 +9,7 @@ const nextConfig = {
 
     return config;
   },
-  images: { domains: ["image.tmdb.org"] },
+  images: { domains: ["image.tmdb.org", "source.unsplash.com"] },
   redirects() {
     return [
       { source: "/", destination: "/home", permanent: true },

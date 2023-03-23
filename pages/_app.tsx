@@ -1,10 +1,13 @@
 import "/styles/globals.css";
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, ReactElement } from "react";
 import { NextPage } from "next";
 import Head from "next/head";
 import type { AppProps } from "next/app";
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<
+  P & { section: string },
+  IP
+> & {
   Layout: FC;
 };
 

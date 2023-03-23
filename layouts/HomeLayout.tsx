@@ -1,4 +1,4 @@
-import { ComponentProps, FC, ReactNode } from "react";
+import React, { ComponentProps, FC, ReactElement, ReactNode } from "react";
 
 import DashboardMenu, { MENU } from "/components/DashboardMenu";
 import TabGroup from "/components/Tabs/TabGroup";
@@ -21,6 +21,13 @@ const HomeLayout: FC<DashboardLayoutProps> = ({ children }) => {
   const selectedTabIndex = Object.values(TABS).findIndex(
     (f) => router.pathname === f.section
   );
+
+  const section = (id: string) =>
+    React.Children.map(children, (child) =>
+      React.cloneElement(child as ReactElement, { section: id })
+    );
+
+  const rightPanelSection = section("rightPanel");
 
   return (
     <div className="flex flex-row bg-dark-2">
@@ -49,7 +56,9 @@ const HomeLayout: FC<DashboardLayoutProps> = ({ children }) => {
           </TabPanels>
         </TabGroup>
       </main>
-      <aside className="flex-1 bg-dark-1"></aside>
+      {rightPanelSection && (
+        <aside className="flex-1 bg-dark-1">{rightPanelSection}</aside>
+      )}
     </div>
   );
 };

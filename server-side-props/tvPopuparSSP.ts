@@ -7,6 +7,10 @@ const tvPopularSSP = (): TPipeGetServerSideProps => async (context, input) => {
     axiosInstance.get("/tv/popular?page=2"),
   ]);
 
+  const filterMissingInfo = (f: any) => f.backdrop_path && f.overview;
+  popular1.results = popular1.results.filter(filterMissingInfo);
+  popular2.results = popular2.results.filter(filterMissingInfo);
+
   // merge props and pass down to the next function
   return {
     props: {

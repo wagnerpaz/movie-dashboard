@@ -22,7 +22,7 @@ const WatchGridItem: React.FC<WatchGridItemProps> = ({
 
   return (
     <li className="relative aspect-[2/3] group overflow-hidden rounded-b-2xl bg-transparent perspective p-4">
-      <div className="relative preserve-3d group-hover:rotate-y-180 w-full h-full duration-1000">
+      <div className="relative preserve-3d group-hover:rotate-y-180 w-full h-full duration-500">
         <div className="absolute backface-hidden w-full h-full">
           <Image
             className="w-full h-full rounded-2xl"
